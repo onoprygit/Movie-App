@@ -1,4 +1,4 @@
-package com.onopry.movieapp.ui.viewmodels
+package com.onopry.movieapp.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 

@@ -3,6 +3,24 @@
     <dimen name="menu_buttons_vertical_padding">14dp</dimen>
     <dimen name="menu_buttons_height">48dp</dimen>
 
+    <!--Movie item-->
+    <dimen name="movie_item_height">365dp</dimen>
+    <dimen name="movie_item_width">150dp</dimen>
+    <dimen name="movie_item_start_margin">3dp</dimen>
+
+    <dimen name="movie_item_image_height">216dp</dimen>
+    <dimen name="movie_item_image_title_margin">8dp</dimen>
+    <dimen name="movie_item_image_radius">10dp</dimen>
+    <dimen name="movie_item_title_description_margin">10dp</dimen>
+    <dimen name="movie_item_description_rating_margin">15dp</dimen>
+    <dimen name="movie_item_age_limit_square_margin">2dp</dimen>
+    <dimen name="movie_item_age_limit_description_margin">10dp</dimen>
+    <dimen name="movie_item_rating_age_limit_margin">48dp</dimen>
+    <dimen name="movie_item_description_height">84dp</dimen>
+
+
+
+    <!--Text sizes-->
     <dimen name="title_1">20sp</dimen>
     <dimen name="title_2">16sp</dimen>
     <dimen name="title_3">14sp</dimen>
@@ -10,4 +28,6 @@
     <dimen name="text_1">14sp</dimen>
     <dimen name="text_2">12sp</dimen>
     <dimen name="text_3">10sp</dimen>
+
+    <dimen name="age_limit">7sp</dimen>
 </resources>
