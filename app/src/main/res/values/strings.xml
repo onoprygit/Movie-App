@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">MovieApp</string>
+
+    <string name="home_screen_title"><b>Popular now</b></string>
+
+    <string name="detail_screen_actors">Actors</string>
+    
+    <string name="profile_screen_interests_title">Interests</string>
+    <string name="profile_screen_personal_data_title">Personal data</string>
+    <string name="profile_screen_personal_data_name">Name</string>
+    <string name="profile_screen_personal_data_email">eMail</string>
+    <string name="profile_screen_personal_data_phone">Phone number</string>
+
+    <string name="profile_screen_settings_title">Settings</string>
+    <string name="profile_screen_settings_notifications">Notifications</string>
+    <string name="profile_screen_settings_confidentiality">Confidentiality</string>
+    <string name="profile_screen_settings_theme">Theme</string>
+    <string name="profile_screen_settings_language">Language</string>
+    <string name="profile_screen_settings_data_and_memory">Data and memory</string>
+    <string name="profile_screen_application_title">Application</string>
+    <string name="profile_screen_application_question">Ask question</string>
+    <string name="profile_screen_application_report">Tell us about problems</string>
+
+    <string name="profile_screen_logout">Logout</string>
+
+
 </resources>
