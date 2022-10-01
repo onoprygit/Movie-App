@@ -7,14 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.onopry.movieapp.R
+import com.onopry.movieapp.databinding.FragmentMovieDetailsBinding
 import com.onopry.movieapp.ui.viewmodels.MovieDetailsViewModel
 
 class MovieDetailsFragment : Fragment() {
 
+    private lateinit var binding: FragmentMovieDetailsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_movie_details, container, false)
+    ): View {
+        binding = FragmentMovieDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }
