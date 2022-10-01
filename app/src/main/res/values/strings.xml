@@ -4,6 +4,7 @@
     <string name="home_screen_title"><b>Popular now</b></string>
 
     <string name="detail_screen_actors">Actors</string>
+    <string name="movie_age_limit">%1$d+</string>
     
     <string name="profile_screen_interests_title">Interests</string>
     <string name="profile_screen_personal_data_title">Personal data</string>
