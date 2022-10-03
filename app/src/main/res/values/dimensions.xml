@@ -30,4 +30,11 @@
     <dimen name="text_3">10sp</dimen>
 
     <dimen name="age_limit">7sp</dimen>
+    
+    <!--movie list-->
+    <dimen name="content_horizontal_offset">20dp</dimen>
+
+    <dimen name="search_icon_margin_top">32dp</dimen>
+    <dimen name="search_icon_margin_end">20dp</dimen>
+
 </resources>
