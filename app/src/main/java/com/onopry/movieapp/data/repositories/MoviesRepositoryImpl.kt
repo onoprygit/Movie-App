@@ -1,11 +1,14 @@
 package com.onopry.movieapp.data.repositories
 
-import com.onopry.movieapp.data.datasources.remote.MovieRemoteDataSource
+import com.onopry.movieapp.data.datasources.remote.movies.MovieRemoteDataSource
 import com.onopry.movieapp.domain.repositories.MoviesRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MoviesRepositoryImpl(
+@Singleton
+class MoviesRepositoryImpl @Inject constructor (
     /*private val movieTestDataSource: MovieDataSourceTestDataImpl,*/
-    private val movieRemoteDataSource: MovieRemoteDataSource
+    val movieRemoteDataSource: MovieRemoteDataSource
 ): MoviesRepository {
 //    override fun fetchMovies() = movieTestDataSource.fetchMovies()
     override suspend fun fetchMovies() = movieRemoteDataSource.fetchMovies()
