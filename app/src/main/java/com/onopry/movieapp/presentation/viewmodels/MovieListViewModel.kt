@@ -5,10 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.onopry.movieapp.data.datasources.remote.network.Error
+import com.onopry.movieapp.data.datasources.remote.network.Exception
+import com.onopry.movieapp.data.datasources.remote.network.Success
 import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
-import com.onopry.movieapp.data.network.Error
-import com.onopry.movieapp.data.network.Exception
-import com.onopry.movieapp.data.network.Success
 import com.onopry.movieapp.domain.usecases.GetMoviePreviewUseCase
 import kotlinx.coroutines.launch
 
@@ -18,7 +18,6 @@ class MovieListViewModel(
     private val _moviesPreviews = MutableLiveData<List<MoviePreviewItemResponseBody>>()
     val moviesPreviews: LiveData<List<MoviePreviewItemResponseBody>> = _moviesPreviews
 
-//    private val _errorResponce = MutableLiveData<>
     init {
         fetchMovies()
     }

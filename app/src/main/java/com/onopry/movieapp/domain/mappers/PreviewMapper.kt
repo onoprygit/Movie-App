@@ -11,13 +11,13 @@ class PreviewMapper : Mapper<MoviePreviewItemResponseBody, MoviePreviewItemRespo
         imagePath = data.imagePath,
         rating = data.rating,
         releaseDate = data.releaseDate,
-        adult = false,
-        backdrop_path = "",
-        genre_ids = listOf<Int>(),
-        original_language = "orig",
-        popularity = 1.2,
-        title = "title",
-        video = false,
-        vote_count = 1
+//        adult = false,
+//        backdrop_path = "",
+//        genre_ids = listOf<Int>(),
+//        original_language = "orig",
+//        popularity = 1.2,
+//        title = "title",
+//        video = false,
+//        vote_count = 1
     )
 }

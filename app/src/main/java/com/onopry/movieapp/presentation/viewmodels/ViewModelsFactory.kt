@@ -2,11 +2,9 @@ package com.onopry.movieapp.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.onopry.movieapp.data.datasources.movies.MovieRemoteDataSource
-import com.onopry.movieapp.data.network.RetrofitConfig
+import com.onopry.movieapp.data.datasources.remote.MovieRemoteDataSource
+import com.onopry.movieapp.data.datasources.remote.network.RetrofitService
 import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
-import com.onopry.movieapp.data.services.RetrofitService
-import com.onopry.movieapp.domain.mappers.MoviesPreviewListMapper
 import com.onopry.movieapp.domain.usecases.GetMoviePreviewUseCase
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
@@ -40,7 +38,6 @@ class ViewModelsFactory : ViewModelProvider.Factory {
 
     private val moviesRepository by lazy {
         MoviesRepositoryImpl(
-//            movieTestDataSource,
             movieRemoteDataSource
         )
     }

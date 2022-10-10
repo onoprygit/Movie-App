@@ -47,7 +47,7 @@ class MovieAdapter(
                 movieTitle.text = movie.originalTitle
                 movieDescription.text = movie.description
                 movieDuration.text = movie.releaseDate.toString()
-                movieRating.text = movie.releaseDate.toString()
+                movieRating.text = movie.rating.toString()
 
 //                movieImg.setImageResource(R.drawable.actor_photo_debug)
 //                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",

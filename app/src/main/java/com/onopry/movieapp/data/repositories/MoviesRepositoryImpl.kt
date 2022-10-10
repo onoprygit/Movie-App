@@ -1,6 +1,6 @@
 package com.onopry.movieapp.data.repositories
 
-import com.onopry.movieapp.data.datasources.movies.MovieRemoteDataSource
+import com.onopry.movieapp.data.datasources.remote.MovieRemoteDataSource
 import com.onopry.movieapp.domain.repositories.MoviesRepository
 
 class MoviesRepositoryImpl(
