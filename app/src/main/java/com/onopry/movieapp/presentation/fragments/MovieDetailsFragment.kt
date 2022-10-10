@@ -1,14 +1,11 @@
-package com.onopry.movieapp.ui.view
+package com.onopry.movieapp.presentation.fragments
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.onopry.movieapp.R
+import androidx.fragment.app.Fragment
 import com.onopry.movieapp.databinding.FragmentMovieDetailsBinding
-import com.onopry.movieapp.ui.viewmodels.MovieDetailsViewModel
 
 class MovieDetailsFragment : Fragment() {
 

@@ -1,12 +1,10 @@
 package com.onopry.movieapp.data.models.movie
 
-import java.util.*
-
-data class Movie(
-    val id: UUID,
+data class MoviesDto(
+    val id: Int,
     val title: String,
     val description: String,
-    val rateScore: Int,
-    val ageLimit: Int,
+    val rating: Int,
+    val releaseDate: String,
     val imageUrl: String
 )
