@@ -7,6 +7,6 @@ data class MoviesDto(
     val title: String,
     val description: String,
     val rating: Int,
-    val ageLimit: Int,
+    val releaseDate: String,
     val imageUrl: String
 )

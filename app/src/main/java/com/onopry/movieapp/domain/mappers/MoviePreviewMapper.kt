@@ -1,15 +1,17 @@
 package com.onopry.movieapp.domain.mappers
 
+import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
 import com.onopry.movieapp.data.models.movie.MoviesDto
-import com.onopry.movieapp.domain.models.MoviePreview
 
-class MoviePreviewMapper : Mapper<MoviesDto, MoviePreview> {
-    override fun transform(data: MoviesDto) = MoviePreview(
+class MoviePreviewMapper : Mapper<MoviesDto, MoviePreviewItemResponseBody> {
+    override fun transform(data: MoviesDto): MoviePreviewItemResponseBody{
+        return MoviePreviewItemResponseBody(1,"1","1", 1f, "1", "1", true,"1", listOf(1,1), "1", 1f.toDouble(), "1", false, 1)
+    } /*= MoviePreviewItemResponseBody(
         id = data.id,
-        movieTitle = data.title,
+        originalTitle = data.title,
         description = data.description,
-        imageUrl = data.imageUrl,
-        rating = data.rating,
-        ageLimit = data.ageLimit
-    )
+        imagePath = data.imageUrl,
+        rating = data.rating.toFloat(),
+        releaseDate = data.releaseDate
+    )*/
 }

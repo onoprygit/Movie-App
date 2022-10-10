@@ -1,12 +1,14 @@
 package com.onopry.movieapp.data.repositories
 
-import com.onopry.movieapp.data.datasources.movies.MovieDataSourceTestDataImpl
+import com.onopry.movieapp.data.datasources.movies.MovieRemoteDataSource
 import com.onopry.movieapp.domain.repositories.MoviesRepository
 
 class MoviesRepositoryImpl(
-    private val movieDataSource: MovieDataSourceTestDataImpl
+    /*private val movieTestDataSource: MovieDataSourceTestDataImpl,*/
+    private val movieRemoteDataSource: MovieRemoteDataSource
 ): MoviesRepository {
-    override fun fetchMovies() = movieDataSource.fetchMovies()
+//    override fun fetchMovies() = movieTestDataSource.fetchMovies()
+    override suspend fun fetchMovies() = movieRemoteDataSource.fetchMovies()
 
-    override fun fetchGenres() = movieDataSource.fetchGenres()
+    override fun fetchGenres() = movieRemoteDataSource.fetchGenres()
 }

@@ -48,28 +48,16 @@
         />
 
     <TextView
-        android:id="@+id/age_limit"
+        android:id="@+id/movieDuration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/ic_age_limit_background_oval"
-        tools:text="18+"
-        android:gravity="center"
-        android:textSize="@dimen/age_limit"
+        tools:text="170 m."
+        android:textSize="@dimen/duration"
         android:textColor="@color/text_color"
         />
 
-<!--    <com.onopry.movieapp.presentation.views.RatingMovieView
-        android:id="@+id/movieRating"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movie_description"
-        android:layout_marginStart="@dimen/movie_item_start_margin"
-        android:layout_marginTop="@dimen/movie_item_age_limit_description_margin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />-->
     <TextView
         android:id="@+id/movieRating"
         android:layout_width="wrap_content"
@@ -77,11 +65,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/movie_description"
         android:layout_marginStart="@dimen/movie_item_start_margin"
-        android:layout_marginTop="@dimen/movie_item_age_limit_description_margin"
+        android:layout_marginTop="2dp"
         tools:text="7.8"
         android:textSize="@dimen/text_2"
         android:textColor="@color/text_color"
         android:textStyle="italic"
+        android:background="@drawable/ic_rating_background_oval"
+        android:gravity="center"
+        android:padding="4dp"
         />
 
 

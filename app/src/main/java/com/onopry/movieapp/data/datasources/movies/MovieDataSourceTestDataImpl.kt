@@ -4,14 +4,14 @@ import com.onopry.movieapp.data.models.actors.ActorDto
 import com.onopry.movieapp.data.models.genre.GenreDto
 import com.onopry.movieapp.data.models.movie.MoviesDto
 
-class MovieDataSourceTestDataImpl: MovieDataSource {
+/*class MovieDataSourceTestDataImpl: MovieDataSource {
     override fun fetchMovies() = listOf(
         MoviesDto(
             id = 1,
             title = "Гнев человеческий",
             description = "Эйч — загадочный и холодный на вид джентльмен, но внутри него пылает жажда справедливости. Преследуя...",
             rating = 3,
-            ageLimit = 18,
+            duration = 18,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5JP9X5tCZ6qz7DYMabLmrQirlWh.jpg"
         ),
         MoviesDto(
@@ -19,7 +19,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Мортал Комбат",
             description = "Боец смешанных единоборств Коул Янг не раз соглашался проиграть за деньги. Он не знает о своем наследии...",
             rating = 5,
-            ageLimit = 18,
+            duration = 18,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pMIixvHwsD5RZxbvgsDSNkpKy0R.jpg"
         ),
         MoviesDto(
@@ -27,7 +27,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Упс... Приплыли!",
             description = "От Великого потопа зверей спас ковчег. Но спустя полгода скитаний они готовы сбежать с него куда угодно...",
             rating = 5,
-            ageLimit = 6,
+            duration = 6,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/546RNYy9Wi5wgboQ7EtD6i0DY5D.jpg"
         ),
         MoviesDto(
@@ -35,7 +35,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "The Box",
             description = "Уличный музыкант знакомится с музыкальным продюсером, и они вдвоём отправляются в путешествие...",
             rating = 4,
-            ageLimit = 12,
+            duration = 12,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fq3DSw74fAodrbLiSv0BW1Ya4Ae.jpg"
         ),
         MoviesDto(
@@ -43,7 +43,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Сага о Дэнни Эрнандесе",
             description = "Tekashi69 или Сикснайн — знаменитый бруклинский рэпер с радужными волосами — прогремел...",
             rating = 2,
-            ageLimit = 18,
+            duration = 18,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/5xXGQLVtTAExHY92DHD9ewGmKxf.jpg"
         ),
         MoviesDto(
@@ -51,7 +51,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Пчелка Майя",
             description = "Когда упрямая пчелка Майя и ее лучший друг Вилли спасают принцессу-муравьишку, начинается сказочное...",
             rating = 4,
-            ageLimit = 0,
+            duration = 0,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xltjMeLlxywym14NEizl0metO10.jpg"
         ),
         MoviesDto(
@@ -59,7 +59,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Круэлла",
             description = "Невероятно одаренная мошенница по имени Эстелла решает сделать себе имя в мире моды.",
             rating = 4,
-            ageLimit = 12,
+            duration = 12,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hUfyYGP9Xf6cHF9y44JXJV3NxZM.jpg"
         ),
         MoviesDto(
@@ -67,7 +67,7 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             title = "Чёрная вдова",
             description = "Чёрной Вдове придется вспомнить о том, что было в её жизни задолго до присоединения к команде Мстителей",
             rating = 3,
-            ageLimit = 16,
+            duration = 16,
             imageUrl = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mbtN6V6y5kdawvAkzqN4ohi576a.jpg"
         ),
     )
@@ -125,4 +125,4 @@ class MovieDataSourceTestDataImpl: MovieDataSource {
             imageUrl = "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/4SYTH5FdB0dAORV98Nwg3llgVnY.jpg"
         ),
     )
-}
+}*/

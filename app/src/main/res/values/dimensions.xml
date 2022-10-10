@@ -30,7 +30,8 @@
     <dimen name="text_3">10sp</dimen>
 
     <dimen name="age_limit">7sp</dimen>
-    
+    <dimen name="duration">12sp</dimen>
+
     <!--movie list-->
     <dimen name="content_horizontal_offset">20dp</dimen>
 

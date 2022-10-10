@@ -1,12 +1,11 @@
 package com.onopry.movieapp.presentation.lists.diffutills
 
 import androidx.recyclerview.widget.DiffUtil
-import com.onopry.movieapp.data.models.movie.MoviesDto
-import com.onopry.movieapp.domain.models.MoviePreview
+import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
 
 class MovieDiffUtillCallback(
-    private val oldMoviesList: List<MoviePreview>,
-    private val newMoviesList: List<MoviePreview>
+    private val oldMoviesList: List<MoviePreviewItemResponseBody>,
+    private val newMoviesList: List<MoviePreviewItemResponseBody>
 ): DiffUtil.Callback() {
     override fun getOldListSize() = oldMoviesList.size
 
@@ -18,10 +17,10 @@ class MovieDiffUtillCallback(
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldList = oldMoviesList[oldItemPosition]
         val newList = newMoviesList[newItemPosition]
-        return oldList.movieTitle == newList.movieTitle
-                && oldList.imageUrl == newList.imageUrl
+        return oldList.originalTitle == newList.originalTitle
+                && oldList.imagePath == newList.imagePath
                 && oldList.description == newList.description
                 && oldList.rating == newList.rating
-                && oldList.ageLimit == newList.ageLimit
+                && oldList.releaseDate == newList.releaseDate
     }
 }

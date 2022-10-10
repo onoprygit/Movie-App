@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.onopry.movieapp.data.datasources.movies.MovieDataSourceTestDataImpl
 import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
 import com.onopry.movieapp.databinding.FragmentMovieListBinding
 import com.onopry.movieapp.presentation.lists.adapters.MovieAdapter
@@ -32,7 +31,9 @@ class MovieListFragment : Fragment() {
             .get(MovieListViewModel::class.java)
 
         viewModel.moviesPreviews.observe(viewLifecycleOwner) { movies ->
-            movieAdapter.setData(movies)
+            if (movies != null) {
+                movieAdapter.setData(movies)
+            }
         }
 
         movieAdapter = MovieAdapter { id ->

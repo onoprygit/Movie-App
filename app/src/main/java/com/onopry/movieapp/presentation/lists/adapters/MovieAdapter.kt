@@ -1,16 +1,13 @@
 package com.onopry.movieapp.presentation.lists.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onopry.movieapp.R
-import com.onopry.movieapp.data.models.movie.MoviesDto
+import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
 import com.onopry.movieapp.databinding.ItemMovieListBinding
-import com.onopry.movieapp.domain.models.MoviePreview
 import com.onopry.movieapp.presentation.lists.diffutills.MovieDiffUtillCallback
 
 typealias OnRecyclerViewItemClickListener = (movieId: Int) -> Unit
@@ -19,9 +16,9 @@ class MovieAdapter(
     private val clickListener: OnRecyclerViewItemClickListener
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    private var movies = mutableListOf<MoviePreview>()
+    private var movies = mutableListOf<MoviePreviewItemResponseBody>()
 
-    fun setData(movies: List<MoviePreview>) {
+    fun setData(movies: List<MoviePreviewItemResponseBody>) {
         val diffUtillCallback = MovieDiffUtillCallback(this.movies, movies)
         val diffMovies = DiffUtil.calculateDiff(diffUtillCallback)
         this.movies = movies.toMutableList()
@@ -43,18 +40,20 @@ class MovieAdapter(
     inner class MovieViewHolder(val binding: ItemMovieListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: MoviePreview) {
+        fun bind(movie: MoviePreviewItemResponseBody) {
             itemView.setOnClickListener{ clickListener.invoke(movie.id) }
             
             with(binding) {
-                movieTitle.text = movie.movieTitle
+                movieTitle.text = movie.originalTitle
                 movieDescription.text = movie.description
-                ageLimit.text = "${movie.ageLimit}+"
-                movieRating.text = movie.ageLimit.toString()
+                movieDuration.text = movie.releaseDate.toString()
+                movieRating.text = movie.releaseDate.toString()
 
 //                movieImg.setImageResource(R.drawable.actor_photo_debug)
+//                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",
+
                 Glide.with(itemView.context)
-                    .load(movie.imageUrl)
+                    .load("https://image.tmdb.org/t/p/w500${movie.imagePath}")
                     .placeholder(R.drawable.poster_placeholder)
                     .into(movieImg)
 
