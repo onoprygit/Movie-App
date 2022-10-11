@@ -1,20 +1,23 @@
-package com.onopry.movieapp.data.datasources.remote
+package com.onopry.movieapp.data.datasources.remote.movies
 
 import com.onopry.movieapp.data.datasources.remote.movies.MovieDataSource
+import com.onopry.movieapp.data.datasources.remote.network.NetworkResult
 import com.onopry.movieapp.data.datasources.remote.network.RetrofitService
 import com.onopry.movieapp.data.datasources.remote.network.safeApiCall
 import com.onopry.movieapp.data.models.actors.ActorDto
 import com.onopry.movieapp.data.models.genre.GenreDto
+import com.onopry.movieapp.data.models.movie.MovieListResponseBody
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
+import javax.inject.Singleton
 
 
-class MovieRemoteDataSource(
-    private val movieService: RetrofitService,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+@Singleton
+class MovieRemoteDataSource @Inject constructor(
+    val movieService: RetrofitService,
+    val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : MovieDataSource {
-
-    private val apiKey = "e4833b4846dccc926e6dad24a6291ea8"
 
     override suspend fun fetchMovies() = safeApiCall(dispatcher) {
         movieService.fetchMoviesPreviewList()

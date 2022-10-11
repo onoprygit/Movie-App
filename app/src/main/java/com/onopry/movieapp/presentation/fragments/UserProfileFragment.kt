@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.onopry.movieapp.databinding.FragmentUserProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentUserProfileBinding
