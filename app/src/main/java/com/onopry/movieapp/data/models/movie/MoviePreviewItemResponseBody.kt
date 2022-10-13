@@ -22,4 +22,7 @@ data class MoviePreviewItemResponseBody(
 
     @Json(name = "poster_path")
     val imagePath: String?,
+
+    @Json(name = "genre_ids")
+    val genreIds: List<Int>
 )

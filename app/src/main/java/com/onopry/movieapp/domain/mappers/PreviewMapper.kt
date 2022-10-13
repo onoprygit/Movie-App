@@ -11,6 +11,7 @@ class PreviewMapper : Mapper<MoviePreviewItemResponseBody, MoviePreviewItemRespo
         imagePath = data.imagePath,
         rating = data.rating,
         releaseDate = data.releaseDate,
+        genreIds = data.genreIds
 //        adult = false,
 //        backdrop_path = "",
 //        genre_ids = listOf<Int>(),
