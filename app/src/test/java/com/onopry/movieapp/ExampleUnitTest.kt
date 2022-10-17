@@ -1,8 +1,10 @@
 package com.onopry.movieapp
 
+import android.icu.text.SimpleDateFormat
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.time.LocalDate
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +14,11 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val stringDate = "1993-10-09"
+        val expectedDate = LocalDate.of(1993, 10, 9)
+        val resultDate = LocalDate.parse(stringDate)
+
+
+        assertEquals(expectedDate, resultDate)
     }
 }

@@ -1,8 +1,20 @@
 package com.onopry.movieapp.data.models.actors
 
+import com.squareup.moshi.Json
+
 data class ActorDto(
-    val id: Int,
+    @Json(name = "id")
+    val id: Long,
+
+    @Json(name = "original_name")
     val name: String,
-    val characterName: String,
+
+    @Json(name = "character")
+    val character: String,
+
+    @Json(name = "profile_path")
     val imageUrl: String,
+
+    @Json(name = "order")
+    val order: Int
 )

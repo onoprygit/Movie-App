@@ -17,5 +17,9 @@ class MoviesRepositoryImpl @Inject constructor(
     override fun fetchGenres() = movieRemoteDataSource.fetchGenres()
 
     //    override fun fetchMovies() = movieTestDataSource.fetchMovies()
-    override suspend fun fetchMovies() = movieRemoteDataSource.fetchMovies()
+    override suspend fun fetchPreviews() = movieRemoteDataSource.fetchPreviews()
+
+    override suspend fun fetchDetails(id: Long) = movieRemoteDataSource.fetchDetails(id)
+
+
 }

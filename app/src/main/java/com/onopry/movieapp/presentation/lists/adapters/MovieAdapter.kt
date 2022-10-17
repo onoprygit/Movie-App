@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onopry.movieapp.R
-import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 import com.onopry.movieapp.databinding.ItemMovieListBinding
 import com.onopry.movieapp.presentation.lists.diffutills.MovieDiffUtillCallback
 

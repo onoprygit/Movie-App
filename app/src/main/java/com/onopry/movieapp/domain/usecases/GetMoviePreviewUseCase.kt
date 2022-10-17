@@ -7,5 +7,5 @@ class GetMoviePreviewUseCase @Inject constructor(
     private val repository: MoviesRepository/*,
     private val moviesListMapper: Mapper<List<MoviesDto>, List<MoviePreview>>*/
 ) {
-    suspend fun execute() = repository.fetchMovies()
+    suspend fun execute() = repository.fetchPreviews()
 }

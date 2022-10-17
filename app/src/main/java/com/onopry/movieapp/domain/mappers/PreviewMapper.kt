@@ -1,6 +1,6 @@
 package com.onopry.movieapp.domain.mappers
 
-import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 
 class PreviewMapper : Mapper<MoviePreviewItemResponseBody, MoviePreviewItemResponseBody> {
 
