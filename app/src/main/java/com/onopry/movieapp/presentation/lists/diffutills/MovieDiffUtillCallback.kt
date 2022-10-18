@@ -1,7 +1,7 @@
 package com.onopry.movieapp.presentation.lists.diffutills
 
 import androidx.recyclerview.widget.DiffUtil
-import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 
 class MovieDiffUtillCallback(
     private val oldMoviesList: List<MoviePreviewItemResponseBody>,

@@ -1,4 +1,4 @@
-package com.onopry.movieapp.data.models.movie
+package com.onopry.movieapp.data.models.movie.preview
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class MoviePreviewItemResponseBody(
     @Json(name = "id")
-    val id: Int,
+    val id: Long,
 
     @Json(name = "original_title")
     val originalTitle: String,
@@ -22,4 +22,7 @@ data class MoviePreviewItemResponseBody(
 
     @Json(name = "poster_path")
     val imagePath: String?,
+
+    @Json(name = "genre_ids")
+    val genreIds: List<Int>
 )

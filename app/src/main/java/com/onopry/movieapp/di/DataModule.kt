@@ -1,8 +1,7 @@
 package com.onopry.movieapp.di
 
-import com.onopry.movieapp.data.datasources.remote.movies.MovieDataSource
 import com.onopry.movieapp.data.datasources.remote.movies.MovieRemoteDataSource
-import com.onopry.movieapp.data.datasources.remote.network.RetrofitService
+import com.onopry.movieapp.data.datasources.remote.network.MovieDbApi
 import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -13,7 +12,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -49,12 +47,12 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideApi(retrofit: Retrofit) = retrofit.create(RetrofitService::class.java)
+    fun provideApi(retrofit: Retrofit) = retrofit.create(MovieDbApi::class.java)
 
     /* MovieDataSource */
     @Provides
     @Singleton
-    fun provideRemoteDataSource(movieService: RetrofitService) =
+    fun provideRemoteDataSource(movieService: MovieDbApi) =
         MovieRemoteDataSource(movieService = movieService)
 
     /* Repository */

@@ -1,6 +1,6 @@
 package com.onopry.movieapp.domain.mappers
 
-import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 
 class PreviewMapper : Mapper<MoviePreviewItemResponseBody, MoviePreviewItemResponseBody> {
 
@@ -11,6 +11,7 @@ class PreviewMapper : Mapper<MoviePreviewItemResponseBody, MoviePreviewItemRespo
         imagePath = data.imagePath,
         rating = data.rating,
         releaseDate = data.releaseDate,
+        genreIds = data.genreIds
 //        adult = false,
 //        backdrop_path = "",
 //        genre_ids = listOf<Int>(),

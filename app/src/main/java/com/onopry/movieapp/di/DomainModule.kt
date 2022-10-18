@@ -1,7 +1,10 @@
 package com.onopry.movieapp.di
 
+import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
-import com.onopry.movieapp.domain.repositories.MoviesRepository
+import com.onopry.movieapp.domain.mappers.MovieDetailsMapper
+import com.onopry.movieapp.domain.models.MovieDetails
+import com.onopry.movieapp.domain.usecases.GetMovieDetailsUseCase
 import com.onopry.movieapp.domain.usecases.GetMoviePreviewUseCase
 import dagger.Module
 import dagger.Provides
@@ -17,5 +20,15 @@ object DomainModule {
         GetMoviePreviewUseCase(
             repository = moviesRepository
         )
+
+    @Provides
+    fun provideGetMovieDetailsUseCase(
+        moviesRepository: MoviesRepositoryImpl
+    ) = GetMovieDetailsUseCase(
+        repository = moviesRepository
+        )
+
+    @Provides
+    fun provideDetailsMapper() = MovieDetailsMapper()
 
 }

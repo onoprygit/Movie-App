@@ -1,6 +1,12 @@
 package com.onopry.movieapp.data.models.genre
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class GenreDto(
+    @Json(name = "id")
     val id: Int,
-    val genre: String
+    @Json(name = "name")
+    val name: String
 )

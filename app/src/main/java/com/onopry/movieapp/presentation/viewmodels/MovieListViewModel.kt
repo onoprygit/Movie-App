@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.onopry.movieapp.data.datasources.remote.network.Error
 import com.onopry.movieapp.data.datasources.remote.network.Exception
 import com.onopry.movieapp.data.datasources.remote.network.Success
-import com.onopry.movieapp.data.models.movie.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 import com.onopry.movieapp.domain.usecases.GetMoviePreviewUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
-    val getMoviePreviewUseCase: GetMoviePreviewUseCase
+    private val getMoviePreviewUseCase: GetMoviePreviewUseCase
 ) : ViewModel() {
     private val _moviesPreviews = MutableLiveData<List<MoviePreviewItemResponseBody>>()
     val moviesPreviews: LiveData<List<MoviePreviewItemResponseBody>> = _moviesPreviews

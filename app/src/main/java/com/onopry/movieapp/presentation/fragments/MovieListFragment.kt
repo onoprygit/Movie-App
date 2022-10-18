@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.onopry.movieapp.databinding.FragmentMovieListBinding
 import com.onopry.movieapp.presentation.lists.adapters.MovieAdapter
@@ -38,6 +39,9 @@ class MovieListFragment : Fragment() {
 
         movieAdapter = MovieAdapter { id ->
             Toast.makeText(context, id.toString(), Toast.LENGTH_SHORT).show()
+//            val action = MovieDetailsFragmentDirections.
+            val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = id)
+            findNavController().navigate(directions)
         }
 
         binding.recyclerMovies.adapter = movieAdapter

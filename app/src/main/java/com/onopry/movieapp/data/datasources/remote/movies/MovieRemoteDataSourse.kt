@@ -1,12 +1,11 @@
 package com.onopry.movieapp.data.datasources.remote.movies
 
-import com.onopry.movieapp.data.datasources.remote.movies.MovieDataSource
+import com.onopry.movieapp.data.datasources.remote.network.MovieDbApi
 import com.onopry.movieapp.data.datasources.remote.network.NetworkResult
-import com.onopry.movieapp.data.datasources.remote.network.RetrofitService
 import com.onopry.movieapp.data.datasources.remote.network.safeApiCall
 import com.onopry.movieapp.data.models.actors.ActorDto
 import com.onopry.movieapp.data.models.genre.GenreDto
-import com.onopry.movieapp.data.models.movie.MovieListResponseBody
+import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
@@ -15,12 +14,16 @@ import javax.inject.Singleton
 
 @Singleton
 class MovieRemoteDataSource @Inject constructor(
-    val movieService: RetrofitService,
+    val movieService: MovieDbApi,
     val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : MovieDataSource {
 
-    override suspend fun fetchMovies() = safeApiCall(dispatcher) {
+    override suspend fun fetchPreviews() = safeApiCall(dispatcher) {
         movieService.fetchMoviesPreviewList()
+    }
+
+    override suspend fun fetchDetails(id: Long) = safeApiCall(dispatcher) {
+        movieService.fetchMovieDetails(id)
     }
 
     override fun fetchGenres(): List<GenreDto> {
