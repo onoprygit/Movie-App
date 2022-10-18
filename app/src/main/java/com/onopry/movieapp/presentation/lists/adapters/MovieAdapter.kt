@@ -10,7 +10,7 @@ import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBod
 import com.onopry.movieapp.databinding.ItemMovieListBinding
 import com.onopry.movieapp.presentation.lists.diffutills.MovieDiffUtillCallback
 
-typealias OnRecyclerViewItemClickListener = (movieId: Int) -> Unit
+typealias OnRecyclerViewItemClickListener = (movieId: Long) -> Unit
 
 class MovieAdapter(
     private val clickListener: OnRecyclerViewItemClickListener

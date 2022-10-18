@@ -15,6 +15,6 @@ interface MovieDbApi {
     suspend fun fetchMoviesPreviewList(
     ): Response<MovieListResponseBody>
 
-    @GET("/movie/{movie_id}?api_key=e4833b4846dccc926e6dad24a6291ea8&append_to_response=release_dates,credits")
+    @GET("movie/{movie_id}?api_key=e4833b4846dccc926e6dad24a6291ea8&append_to_response=release_dates,credits")
     suspend fun fetchMovieDetails(@Path("movie_id") movieId: Long): Response<MovieDetailsResponseBody>
 }

@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class MoviePreviewItemResponseBody(
     @Json(name = "id")
-    val id: Int,
+    val id: Long,
 
     @Json(name = "original_title")
     val originalTitle: String,

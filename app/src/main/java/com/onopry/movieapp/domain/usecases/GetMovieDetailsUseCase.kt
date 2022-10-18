@@ -4,10 +4,10 @@ import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import com.onopry.movieapp.domain.mappers.Mapper
 import com.onopry.movieapp.domain.models.MovieDetails
 import com.onopry.movieapp.domain.repositories.MoviesRepository
+import javax.inject.Inject
 
-class GetMovieDetailsUseCase(
-    val repository: MoviesRepository,
-    val mapper: Mapper<MovieDetailsResponseBody, MovieDetails>
+class GetMovieDetailsUseCase @Inject constructor(
+    private val repository: MoviesRepository
 //    val mapper: MovieDetailsMapper
 ) {
     suspend fun execute(id: Long) = repository.fetchDetails(id)

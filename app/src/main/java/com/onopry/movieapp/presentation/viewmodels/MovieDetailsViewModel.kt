@@ -10,6 +10,7 @@ import com.onopry.movieapp.data.datasources.remote.network.Exception
 import com.onopry.movieapp.data.datasources.remote.network.Success
 import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import com.onopry.movieapp.domain.mappers.Mapper
+import com.onopry.movieapp.domain.mappers.MovieDetailsMapper
 import com.onopry.movieapp.domain.models.MovieDetails
 import com.onopry.movieapp.domain.usecases.GetMovieDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,8 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailsViewModel @Inject constructor(
-    val getMovieDetailsUseCase: GetMovieDetailsUseCase,
-    val responseToModelMapper: Mapper<MovieDetailsResponseBody, MovieDetails>
+    private val getMovieDetailsUseCase: GetMovieDetailsUseCase,
+    private val responseToModelMapper: MovieDetailsMapper
 ) : ViewModel() {
 
     private val _movieDetails = MutableLiveData<MovieDetails>()

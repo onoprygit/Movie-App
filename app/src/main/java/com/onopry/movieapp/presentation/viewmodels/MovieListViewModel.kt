@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListViewModel @Inject constructor(
-    val getMoviePreviewUseCase: GetMoviePreviewUseCase
+    private val getMoviePreviewUseCase: GetMoviePreviewUseCase
 ) : ViewModel() {
     private val _moviesPreviews = MutableLiveData<List<MoviePreviewItemResponseBody>>()
     val moviesPreviews: LiveData<List<MoviePreviewItemResponseBody>> = _moviesPreviews

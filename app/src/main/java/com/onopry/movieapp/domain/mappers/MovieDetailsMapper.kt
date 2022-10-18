@@ -3,7 +3,9 @@ package com.onopry.movieapp.domain.mappers
 import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import com.onopry.movieapp.domain.models.MovieDetails
 import java.time.LocalDate
+import javax.inject.Singleton
 
+@Singleton
 class MovieDetailsMapper : Mapper<MovieDetailsResponseBody, MovieDetails> {
 
     override fun transform(data: MovieDetailsResponseBody) = MovieDetails(
