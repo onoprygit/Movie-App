@@ -20,7 +20,8 @@ class MovieDetailsMapper : Mapper<MovieDetailsResponseBody, MovieDetails> {
         tagline = data.tagline,
         title = data.title,
         userRating = data.userRating,
-        certification = extractCertification(data)
+        certification = extractCertification(data),
+        cast = data.credits.cast
     )
 
     private fun extractCertification(data: MovieDetailsResponseBody) =

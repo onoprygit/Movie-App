@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.onopry.movieapp.databinding.FragmentMovieListBinding
-import com.onopry.movieapp.presentation.lists.adapters.MovieAdapter
+import com.onopry.movieapp.presentation.lists.moviespreviews.MovieAdapter
 import com.onopry.movieapp.presentation.viewmodels.MovieListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

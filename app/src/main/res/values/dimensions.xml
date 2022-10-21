@@ -18,7 +18,13 @@
     <dimen name="movie_item_rating_age_limit_margin">48dp</dimen>
     <dimen name="movie_item_description_height">84dp</dimen>
 
+    <!-- Genre Item -->
+    <dimen name="genre_item_height">18dp</dimen>
 
+    <!--Actor item-->
+    <dimen name="actor_item_image_height">196dp</dimen>
+    <dimen name="actor_item_image_width">150dp</dimen>
+    <dimen name="actor_item_items_offset">10dp</dimen>
 
     <!--Text sizes-->
     <dimen name="title_1">20sp</dimen>
