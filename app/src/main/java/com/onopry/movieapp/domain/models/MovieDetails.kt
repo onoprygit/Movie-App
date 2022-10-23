@@ -1,5 +1,6 @@
 package com.onopry.movieapp.domain.models
 
+import com.onopry.movieapp.data.models.actors.ActorDto
 import com.onopry.movieapp.data.models.genre.GenreDto
 import java.time.LocalDate
 
@@ -17,5 +18,6 @@ data class MovieDetails(
     val tagline: String,
     val title: String,
     val userRating: Float,
-    val certification: String
+    val certification: String,
+    val cast: Array<ActorDto>
 )

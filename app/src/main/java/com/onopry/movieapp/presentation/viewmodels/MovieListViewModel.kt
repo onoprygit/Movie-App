@@ -21,6 +21,9 @@ class MovieListViewModel @Inject constructor(
     private val _moviesPreviews = MutableLiveData<List<MoviePreviewItemResponseBody>>()
     val moviesPreviews: LiveData<List<MoviePreviewItemResponseBody>> = _moviesPreviews
 
+    private val _genresOfVisibleMovies = MutableLiveData<HashMap<Long, Int>>()
+    val genresOfVisibleMovies: LiveData<HashMap<Long, Int>> = _genresOfVisibleMovies
+
     init {
         fetchMovies()
     }

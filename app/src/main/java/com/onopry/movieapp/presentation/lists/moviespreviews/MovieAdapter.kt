@@ -1,4 +1,4 @@
-package com.onopry.movieapp.presentation.lists.adapters
+package com.onopry.movieapp.presentation.lists.moviespreviews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.onopry.movieapp.R
 import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 import com.onopry.movieapp.databinding.ItemMovieListBinding
-import com.onopry.movieapp.presentation.lists.diffutills.MovieDiffUtillCallback
+import com.onopry.movieapp.presentation.lists.moviespreviews.MovieDiffUtillCallback
 
 typealias OnRecyclerViewItemClickListener = (movieId: Long) -> Unit
 
