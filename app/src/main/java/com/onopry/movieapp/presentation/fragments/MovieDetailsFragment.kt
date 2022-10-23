@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.onopry.movieapp.R
 import com.onopry.movieapp.databinding.FragmentMovieDetailsBinding
 import com.onopry.movieapp.presentation.lists.actors.CastAdapter
@@ -41,13 +42,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 genreAdapter.setGenreList(details.genres)
                 castAdapter.setActorsList(details.cast)
 
-                /*
-                Glide.with(itemView.context)
-                .load("https://image.tmdb.org/t/p/w500${actor.imageUrl}")
-                .placeholder(R.drawable.poster_placeholder)
-                .into(binding.actorImage)
-                */
-
                 Glide.with(this@MovieDetailsFragment)
                     .load("https://image.tmdb.org/t/p/w500${details.poster}")
                     .into(binding.movieBackgroundImage)
@@ -56,9 +50,9 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 movieTitle.text = details.title
                 movieReleaseDate.text = details.moviePremiereDate.toString()
                 movieAgeCertification.text = details.certification
-
             }
         }
+
 
     }
 
