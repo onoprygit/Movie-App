@@ -1,4 +1,3 @@
 package com.onopry.movieapp.domain.usecases
 
-interface UseCase {
-}
+interface UseCase

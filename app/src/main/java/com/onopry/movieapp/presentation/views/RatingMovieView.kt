@@ -12,10 +12,16 @@ class RatingMovieView(
     attrs: AttributeSet?,
     defStyleAttr: Int,
     defStyleRes: Int
-): LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(context, attrs, defStyleAttr, 0)
-    constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : this(
+        context,
+        attrs,
+        defStyleAttr,
+        0
+    )
+
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     constructor(context: Context) : this(context, null)
 
     private val binding = MovieRatingViewBinding.bind(this)
@@ -29,13 +35,13 @@ class RatingMovieView(
         LayoutInflater.from(context).inflate(R.layout.movie_rating_view, this, true)
     }
 
-    fun setMovieRating(rating: Int){
+    fun setMovieRating(rating: Int) {
         movieRating = rating
         drawMovieRating()
     }
 
-    private fun drawMovieRating(){
-        when(movieRating) {
+    private fun drawMovieRating() {
+        when (movieRating) {
             0 -> {
                 binding.star1.setImageResource(starEmpty)
                 binding.star2.setImageResource(starEmpty)
@@ -80,5 +86,4 @@ class RatingMovieView(
             }
         }
     }
-
 }

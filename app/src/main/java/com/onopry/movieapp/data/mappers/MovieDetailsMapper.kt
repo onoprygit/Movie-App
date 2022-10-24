@@ -7,7 +7,6 @@ import com.onopry.movieapp.data.datasources.remote.network.Success
 import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
 import com.onopry.movieapp.domain.models.MovieDetails
 import java.time.LocalDate
-import javax.inject.Singleton
 
 class MovieDetailsMapper :
     Mapper<NetworkResult<MovieDetailsResponseBody>, NetworkResult<MovieDetails>> {
@@ -46,7 +45,6 @@ class MovieDetailsMapper :
             ?.certification ?: "N/A"
 
     private fun localDateFromString(date: String) = LocalDate.parse(date)
-
 }
 
 

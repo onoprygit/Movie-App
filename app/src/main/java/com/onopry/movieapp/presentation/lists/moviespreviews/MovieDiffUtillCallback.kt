@@ -1,6 +1,5 @@
 package com.onopry.movieapp.presentation.lists.moviespreviews
 
-import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 import com.onopry.movieapp.domain.models.MoviePreview
 import com.onopry.movieapp.presentation.lists.BaseDiffUtillCallback
 
@@ -29,7 +28,7 @@ import com.onopry.movieapp.presentation.lists.BaseDiffUtillCallback
 class MovieDiffUtillCallback(
     private val oldMoviesList: List<MoviePreview>,
     private val newMoviesList: List<MoviePreview>
-): BaseDiffUtillCallback<MoviePreview>(oldMoviesList, newMoviesList) {
+) : BaseDiffUtillCallback<MoviePreview>(oldMoviesList, newMoviesList) {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
         oldMoviesList[oldItemPosition].id == newMoviesList[newItemPosition].id

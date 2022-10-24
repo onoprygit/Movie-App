@@ -7,7 +7,8 @@ import com.onopry.movieapp.data.datasources.remote.network.Success
 import com.onopry.movieapp.data.models.movie.preview.MovieListResponseBody
 import com.onopry.movieapp.domain.models.MoviePreview
 
-class MoviePreviewMapper : Mapper<NetworkResult<MovieListResponseBody>, NetworkResult<List<MoviePreview>>> {
+class MoviePreviewMapper :
+    Mapper<NetworkResult<MovieListResponseBody>, NetworkResult<List<MoviePreview>>> {
 
     override fun transform(data: NetworkResult<MovieListResponseBody>) =
         when (data) {

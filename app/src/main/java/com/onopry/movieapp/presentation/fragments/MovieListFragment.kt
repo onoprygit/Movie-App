@@ -29,7 +29,7 @@ class MovieListFragment : Fragment() {
         binding = FragmentMovieListBinding.inflate(inflater, container, false)
 
         viewModel.moviePreviewStatus.observe(viewLifecycleOwner) { status ->
-            with(status){
+            with(status) {
                 hideLoadingProgress()
                 movieAdapter.setData(data)
 
@@ -38,15 +38,8 @@ class MovieListFragment : Fragment() {
             }
         }
 
-        //        viewModel.moviesPreviews.observe(viewLifecycleOwner) { movies ->
-        //            if (movies != null) {
-        //                movieAdapter.setData(movies)
-        //            }
-        //        }
-
         movieAdapter = MovieAdapter { id ->
             Toast.makeText(context, id.toString(), Toast.LENGTH_SHORT).show()
-            //            val action = MovieDetailsFragmentDirections.
             val directions =
                 MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = id)
             findNavController().navigate(directions)
@@ -76,7 +69,7 @@ class MovieListFragment : Fragment() {
         showContent()
     }
 
-    private fun onError(message: String){
+    private fun onError(message: String) {
         hideContent()
         binding.errorMessage.text = message
         binding.errorMessage.visibility = View.VISIBLE

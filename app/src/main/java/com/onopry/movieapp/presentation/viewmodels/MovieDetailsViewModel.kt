@@ -23,15 +23,19 @@ class MovieDetailsViewModel @Inject constructor(
     val movieDetails: LiveData<MovieDetailsUiState> = _movieDetails
 
 
-    fun getMovieDetails(id: Long){
+    fun getMovieDetails(id: Long) {
         _movieDetails.value = MovieDetailsUiState(isLoading = true)
-        viewModelScope.launch() {
-            when(val response = getMovieDetailsUseCase(id)){
+        viewModelScope.launch {
+            when (val response = getMovieDetailsUseCase(id)) {
                 is Success -> {
                     _movieDetails.postValue(MovieDetailsUiState(data = response.data))
                 }
                 is Error -> {
-                    _movieDetails.postValue(MovieDetailsUiState(errorMessage = response.message ?: "An unexpected error occured"))
+                    _movieDetails.postValue(
+                        MovieDetailsUiState(
+                            errorMessage = response.message ?: "An unexpected error occured"
+                        )
+                    )
                 }
                 is Exception -> {
                     MovieListState(message = "Oops... Something went wrong.")

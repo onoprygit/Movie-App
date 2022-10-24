@@ -58,8 +58,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 if (isLoading) showLoadingProgress()
             }
         }
-
-
     }
 
     private fun setUpGenreAdapter() {
@@ -97,5 +95,4 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         binding.errorMessage.text = message
         binding.errorMessage.visibility = View.VISIBLE
     }
-
 }

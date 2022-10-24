@@ -6,10 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onopry.movieapp.R
-import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
 import com.onopry.movieapp.databinding.ItemMovieListBinding
 import com.onopry.movieapp.domain.models.MoviePreview
-import com.onopry.movieapp.presentation.lists.moviespreviews.MovieDiffUtillCallback
 
 typealias OnRecyclerViewItemClickListener = (movieId: Long) -> Unit
 
@@ -42,16 +40,16 @@ class MovieAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: MoviePreview) {
-            itemView.setOnClickListener{ clickListener.invoke(movie.id) }
-            
+            itemView.setOnClickListener { clickListener.invoke(movie.id) }
+
             with(binding) {
                 movieTitle.text = movie.originalTitle
                 movieDescription.text = movie.description
                 movieDuration.text = movie.releaseDate.toString()
                 movieRating.text = movie.rating.toString()
 
-//                movieImg.setImageResource(R.drawable.actor_photo_debug)
-//                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",
+                //                movieImg.setImageResource(R.drawable.actor_photo_debug)
+                //                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",
 
                 Glide.with(itemView.context)
                     .load("https://image.tmdb.org/t/p/w500${movie.imagePath}")
@@ -60,6 +58,5 @@ class MovieAdapter(
 
             }
         }
-
     }
 }

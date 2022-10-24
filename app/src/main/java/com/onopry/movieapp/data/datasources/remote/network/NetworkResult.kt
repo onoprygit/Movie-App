@@ -1,7 +1,6 @@
 package com.onopry.movieapp.data.datasources.remote.network
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import retrofit2.Response
