@@ -28,19 +28,27 @@ class MovieListFragment : Fragment() {
     ): View {
         binding = FragmentMovieListBinding.inflate(inflater, container, false)
 
-/*        viewModel = ViewModelProvider(this, ViewModelsFactory())
-            .get(MovieListViewModel::class.java)*/
+        viewModel.moviePreviewStatus.observe(viewLifecycleOwner) { status ->
+            with(status){
+                hideLoadingProgress()
+                movieAdapter.setData(data)
 
-        viewModel.moviesPreviews.observe(viewLifecycleOwner) { movies ->
-            if (movies != null) {
-                movieAdapter.setData(movies)
+                if (message.isNotBlank()) onError(message)
+                if (isLoading) showLoadingProgress()
             }
         }
 
+        //        viewModel.moviesPreviews.observe(viewLifecycleOwner) { movies ->
+        //            if (movies != null) {
+        //                movieAdapter.setData(movies)
+        //            }
+        //        }
+
         movieAdapter = MovieAdapter { id ->
             Toast.makeText(context, id.toString(), Toast.LENGTH_SHORT).show()
-//            val action = MovieDetailsFragmentDirections.
-            val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = id)
+            //            val action = MovieDetailsFragmentDirections.
+            val directions =
+                MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = id)
             findNavController().navigate(directions)
         }
 
@@ -48,5 +56,29 @@ class MovieListFragment : Fragment() {
         binding.recyclerMovies.layoutManager = GridLayoutManager(context, 2)
 
         return binding.root
+    }
+
+    private fun hideContent() {
+        binding.recyclerMovies.visibility = View.INVISIBLE
+    }
+
+    private fun showContent() {
+        binding.recyclerMovies.visibility = View.VISIBLE
+    }
+
+    private fun showLoadingProgress() {
+        hideContent()
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoadingProgress() {
+        binding.progressBar.visibility = View.GONE
+        showContent()
+    }
+
+    private fun onError(message: String){
+        hideContent()
+        binding.errorMessage.text = message
+        binding.errorMessage.visibility = View.VISIBLE
     }
 }

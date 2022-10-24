@@ -1,4 +1,4 @@
-package com.onopry.movieapp.domain.mappers
+package com.onopry.movieapp.data.mappers
 
 
 //todo: not sure about mapper location in this layer of app

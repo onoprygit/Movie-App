@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.onopry.movieapp.R
 import com.onopry.movieapp.databinding.FragmentMovieDetailsBinding
 import com.onopry.movieapp.presentation.lists.actors.CastAdapter
@@ -37,33 +36,66 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         setUpGenreAdapter()
         setUpCastAdapter()
 
-        viewModel.movieDetails.observe(viewLifecycleOwner) { details ->
-            with(binding){
-                genreAdapter.setGenreList(details.genres)
-                castAdapter.setActorsList(details.cast)
+        viewModel.movieDetails.observe(viewLifecycleOwner) { state ->
+            with(state) {
+                hideLoadingProgress()
+                if (data != null) {
+                    with(binding) {
+                        genreAdapter.setGenreList(data.genres)
+                        castAdapter.setActorsList(data.cast)
 
-                Glide.with(this@MovieDetailsFragment)
-                    .load("https://image.tmdb.org/t/p/w500${details.poster}")
-                    .into(binding.movieBackgroundImage)
+                        Glide.with(this@MovieDetailsFragment)
+                            .load("https://image.tmdb.org/t/p/w500${data.poster}")
+                            .into(binding.movieBackgroundImage)
 
-                movieDetailsDescription.text = details.overview
-                movieTitle.text = details.title
-                movieReleaseDate.text = details.moviePremiereDate.toString()
-                movieAgeCertification.text = details.certification
+                        movieDetailsDescription.text = data.overview
+                        movieTitle.text = data.title
+                        movieReleaseDate.text = data.moviePremiereDate.toString()
+                        movieAgeCertification.text = data.certification
+                    }
+                }
+                if (errorMessage.isNotBlank()) onError(errorMessage)
+                if (isLoading) showLoadingProgress()
             }
         }
 
 
     }
 
-    private fun setUpGenreAdapter(){
+    private fun setUpGenreAdapter() {
         genreAdapter = GenresAdapter()
         binding.genresRecycler.adapter = genreAdapter
     }
 
-    private fun setUpCastAdapter(){
+    private fun setUpCastAdapter() {
         castAdapter = CastAdapter()
         binding.detailsCastRecycler.adapter = castAdapter
+    }
+
+    private fun hideContent() {
+        binding.detailsCastRecycler.visibility = View.GONE
+        binding.movieDetailsContent.visibility = View.GONE
+    }
+
+    private fun showContent() {
+        binding.detailsCastRecycler.visibility = View.VISIBLE
+        binding.movieDetailsContent.visibility = View.VISIBLE
+    }
+
+    private fun showLoadingProgress() {
+        hideContent()
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoadingProgress() {
+        binding.progressBar.visibility = View.GONE
+        showContent()
+    }
+
+    private fun onError(message: String) {
+        hideContent()
+        binding.errorMessage.text = message
+        binding.errorMessage.visibility = View.VISIBLE
     }
 
 }

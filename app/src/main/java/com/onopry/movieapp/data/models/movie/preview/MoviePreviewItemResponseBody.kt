@@ -1,5 +1,6 @@
 package com.onopry.movieapp.data.models.movie.preview
 
+import com.onopry.movieapp.domain.models.MoviePreview
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -25,4 +26,14 @@ data class MoviePreviewItemResponseBody(
 
     @Json(name = "genre_ids")
     val genreIds: List<Int>
-)
+) {
+    fun mapToMoviePreview() = MoviePreview(
+        id = id,
+        originalTitle = originalTitle,
+        description = description,
+        rating = rating,
+        releaseDate = releaseDate,
+        imagePath = imagePath,
+        genreIds = genreIds
+    )
+}

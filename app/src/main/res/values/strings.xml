@@ -7,6 +7,7 @@
 
     <!--MovieList fragment-->
     <string name="home_screen_title"><b>Popular now</b></string>
+    <string name="network_error_button">Try again</string>
 
     <!--Detailed fragment-->
     <string name="detail_screen_actors">Actors</string>
