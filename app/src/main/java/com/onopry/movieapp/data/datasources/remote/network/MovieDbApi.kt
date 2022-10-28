@@ -5,6 +5,7 @@ import com.onopry.movieapp.data.models.movie.preview.MovieListResponseBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 import javax.inject.Singleton
 
 @Singleton
@@ -13,6 +14,11 @@ interface MovieDbApi {
     //todo: rewrite
     @GET("./movie/popular?api_key=e4833b4846dccc926e6dad24a6291ea8")
     suspend fun fetchMoviesPreviewList(
+    ): Response<MovieListResponseBody>
+
+    @GET("movie/popular?api_key=e4833b4846dccc926e6dad24a6291ea8")
+    suspend fun fetchMoviesPreviewList(
+        @Query("page") pageNumber: Int
     ): Response<MovieListResponseBody>
 
     @GET("movie/{movie_id}?api_key=e4833b4846dccc926e6dad24a6291ea8&append_to_response=release_dates,credits")
