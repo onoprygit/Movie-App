@@ -17,8 +17,6 @@ import javax.inject.Inject
 class MovieListViewModel @Inject constructor(
     private val getMoviePreviewUseCase: GetMoviePreviewUseCase
 ) : ViewModel() {
-    //    private val _moviesPreviews = MutableLiveData<List<MoviePreviewItemResponseBody>>()
-    //    val moviesPreviews: LiveData<List<MoviePreviewItemResponseBody>> = _moviesPreviews
 
     private val _moviePreviewStatus = MutableLiveData<MovieListState>()
     val moviePreviewStatus: LiveData<MovieListState> = _moviePreviewStatus
@@ -36,7 +34,6 @@ class MovieListViewModel @Inject constructor(
             when (val response = getMoviePreviewUseCase()) {
                 is Success -> {
                     _moviePreviewStatus.postValue(MovieListState(data = response.data))
-                    //                    _moviePreviewStatus.value = MovieListState(data = response.data)
                 }
                 is Error -> {
                     _moviePreviewStatus.postValue(
@@ -48,8 +45,5 @@ class MovieListViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-    fun refreshData() {
     }
 }
