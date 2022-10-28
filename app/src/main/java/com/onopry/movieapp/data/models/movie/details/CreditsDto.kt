@@ -1,13 +1,11 @@
 package com.onopry.movieapp.data.models.movie.details
 
+import com.onopry.movieapp.data.models.actors.ActorDto
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Certifications(
-    @Json(name = "iso_3166_1")
-    val iso: String,
-
-    @Json(name = "release_dates")
-    val releaseDates: Array<ReleaseDates>
+data class CreditsDto(
+    @Json(name = "cast")
+    val cast: Array<ActorDto>
 )

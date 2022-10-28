@@ -17,7 +17,7 @@ class GenresAdapter : RecyclerView.Adapter<GenresAdapter.GenreViewHolder>() {
 
 */
 
-class CastAdapter: RecyclerView.Adapter<CastAdapter.ActorViewHolder>() {
+class CastAdapter : RecyclerView.Adapter<CastAdapter.ActorViewHolder>() {
     private val actorsList = arrayListOf<ActorDto>()
 
     fun setActorsList(list: Array<ActorDto>) {
@@ -31,7 +31,9 @@ class CastAdapter: RecyclerView.Adapter<CastAdapter.ActorViewHolder>() {
         return ActorViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ActorViewHolder, position: Int) { holder.bind(actorsList[position]) }
+    override fun onBindViewHolder(holder: ActorViewHolder, position: Int) {
+        holder.bind(actorsList[position])
+    }
 
     override fun getItemCount() = actorsList.size
 
@@ -44,7 +46,6 @@ class CastAdapter: RecyclerView.Adapter<CastAdapter.ActorViewHolder>() {
                 .load("https://image.tmdb.org/t/p/w500${actor.imageUrl}")
                 .placeholder(R.drawable.poster_placeholder)
                 .into(binding.actorImage)
-
         }
     }
 }

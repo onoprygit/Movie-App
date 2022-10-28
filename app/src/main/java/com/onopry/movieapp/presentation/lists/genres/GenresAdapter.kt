@@ -21,7 +21,9 @@ class GenresAdapter : RecyclerView.Adapter<GenresAdapter.GenreViewHolder>() {
         return GenreViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: GenreViewHolder, position: Int) { holder.bind(genreList[position]) }
+    override fun onBindViewHolder(holder: GenreViewHolder, position: Int) {
+        holder.bind(genreList[position])
+    }
 
     override fun getItemCount() = genreList.size
 

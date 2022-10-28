@@ -62,5 +62,4 @@ object DataModule {
         MoviesRepositoryImpl(
             movieRemoteDataSource = movieRemoteDataSource
         )
-
 }
