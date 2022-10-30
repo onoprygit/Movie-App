@@ -1,8 +1,10 @@
 package com.onopry.movieapp.di
 
 import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
+import com.onopry.movieapp.domain.repositories.MoviesRepository
 import com.onopry.movieapp.domain.usecases.GetMovieDetailsUseCase
 import com.onopry.movieapp.domain.usecases.GetMoviePreviewUseCase
+import com.onopry.movieapp.domain.usecases.GetPagingMoviePreviewsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,4 +26,9 @@ object DomainModule {
     ) = GetMovieDetailsUseCase(
         repository = moviesRepository
     )
+
+    @Provides
+    fun provideGetPagingMoviePreviewsUseCase(
+        moviesRepository: MoviesRepositoryImpl
+    ) = GetPagingMoviePreviewsUseCase(repository = moviesRepository)
 }

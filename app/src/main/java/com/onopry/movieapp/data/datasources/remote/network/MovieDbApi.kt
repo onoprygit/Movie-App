@@ -13,13 +13,10 @@ interface MovieDbApi {
 
     //todo: rewrite
     @GET("./movie/popular?api_key=e4833b4846dccc926e6dad24a6291ea8")
-    suspend fun fetchMoviesPreviewList(
-    ): Response<MovieListResponseBody>
+    suspend fun fetchMoviesPreviewList(): Response<MovieListResponseBody>
 
-    @GET("movie/popular?api_key=e4833b4846dccc926e6dad24a6291ea8")
-    suspend fun fetchMoviesPreviewList(
-        @Query("page") pageNumber: Int
-    ): Response<MovieListResponseBody>
+    @GET("./movie/popular?api_key=e4833b4846dccc926e6dad24a6291ea8")
+    suspend fun fetchPagingMoviesPreviewList(@Query("page") pageNumber: Int = 1): Response<MovieListResponseBody>
 
     @GET("movie/{movie_id}?api_key=e4833b4846dccc926e6dad24a6291ea8&append_to_response=release_dates,credits")
     suspend fun fetchMovieDetails(@Path("movie_id") movieId: Long): Response<MovieDetailsResponseBody>

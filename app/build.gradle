@@ -20,6 +20,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String","BASE_URL",BASE_URL)
+        buildConfigField("String","POSTER_URL",POSTER_URL)
+        buildConfigField("String","API_KEY",API_KEY)
     }
 
     buildTypes {
@@ -38,6 +42,7 @@ android {
     buildFeatures  {
         viewBinding true
     }
+
 }
 
 dependencies {

@@ -2,10 +2,13 @@ package com.onopry.movieapp.presentation.lists.moviespreviews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.onopry.movieapp.BuildConfig
 import com.onopry.movieapp.R
+import com.onopry.movieapp.common.logError
 import com.onopry.movieapp.databinding.ItemMovieListBinding
 import com.onopry.movieapp.domain.models.MoviePreview
 
@@ -52,11 +55,63 @@ class MovieAdapter(
                 //                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",
 
                 Glide.with(itemView.context)
-                    .load("https://image.tmdb.org/t/p/w500${movie.imagePath}")
+                    //                    .load("https://image.tmdb.org/t/p/w500${movie.imagePath}")
+                    .load(BuildConfig.POSTER_URL + movie.imagePath)
                     .placeholder(R.drawable.poster_placeholder)
                     .into(movieImg)
 
             }
         }
     }
+}
+
+class MoviePagingAdapter(private val clickListener: OnRecyclerViewItemClickListener) :
+    PagingDataAdapter<MoviePreview, MoviePagingAdapter.PagingMovieViewHolder>(
+        diffCallback = PagingMoviePreviewDiffUtilCallback()
+    ) {
+
+    inner class PagingMovieViewHolder(private val binding: ItemMovieListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(movie: MoviePreview) {
+            itemView.setOnClickListener { clickListener.invoke(movie.id) }
+
+            logError("Movie item = $movie")
+
+            with(binding) {
+                movieTitle.text = movie.originalTitle
+                movieDescription.text = movie.description
+                movieDuration.text = movie.releaseDate
+                movieRating.text = movie.rating.toString()
+
+                Glide.with(itemView.context)
+                    .load(BuildConfig.POSTER_URL + movie.imagePath)
+                    .placeholder(R.drawable.poster_placeholder)
+                    .into(movieImg)
+
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagingMovieViewHolder {
+        val binding =
+            ItemMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PagingMovieViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: PagingMovieViewHolder, position: Int) {
+        holder.bind(getItem(position)!!)
+    }
+}
+
+class PagingMoviePreviewDiffUtilCallback : DiffUtil.ItemCallback<MoviePreview>() {
+    override fun areItemsTheSame(oldItem: MoviePreview, newItem: MoviePreview) =
+        oldItem.id == newItem.id
+
+    override fun areContentsTheSame(oldItem: MoviePreview, newItem: MoviePreview) =
+        oldItem.originalTitle == newItem.originalTitle
+                && oldItem.imagePath == newItem.imagePath
+                && oldItem.description == newItem.description
+                && oldItem.rating == newItem.rating
+                && oldItem.releaseDate == newItem.releaseDate
 }
