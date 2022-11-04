@@ -13,6 +13,9 @@
     <string name="detail_screen_actors">Actors</string>
     <string name="movie_age_limit">%1$d+</string>
 
+    <!--Item load state-->
+    <string name="load_state_error_text">Oops, can\'t load date</string>
+    <string name="try_again_button">Try again</string>
 
     <!--Profile fragment-->
     <string name="profile_screen_interests_title">Interests</string>

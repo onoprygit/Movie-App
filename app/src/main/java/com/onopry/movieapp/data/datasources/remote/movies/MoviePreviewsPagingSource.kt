@@ -9,8 +9,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class MoviePreviewsPagingSource(
-    private val movieApi: MovieDbApi,
-    private val pageSize: Int
+    private val movieApi: MovieDbApi
 ) : PagingSource<Int, MoviePreviewItemResponseBody>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MoviePreviewItemResponseBody> {
@@ -26,7 +25,6 @@ class MoviePreviewsPagingSource(
             LoadResult.Page(
                 data = responseData,
                 prevKey = if (pageIndex == 1) null else -1,
-                //                nextKey = if (responseData.size == params.loadSize) pageIndex + (params.loadSize / pageSize) else null
                 nextKey = pageIndex + 1
             )
         } catch (e: IOException) {

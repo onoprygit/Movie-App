@@ -18,12 +18,10 @@ import javax.inject.Singleton
 @Singleton
 class MoviesRepositoryImpl @Inject constructor(
     private val movieRemoteDataSource: MovieRemoteDataSource
-    //    private val pagingPreviewSource: PagingSource<Int, MoviePreviewItemResponseBody>
 ) : MoviesRepository {
 
     override fun fetchGenres() = movieRemoteDataSource.fetchGenres()
 
-    //    override fun fetchMovies() = movieTestDataSource.fetchMovies()
     override suspend fun fetchPreviews() =
         MoviePreviewMapper().transform(movieRemoteDataSource.fetchPreviews())
 

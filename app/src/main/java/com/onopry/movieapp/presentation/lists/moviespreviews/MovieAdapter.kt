@@ -48,14 +48,10 @@ class MovieAdapter(
             with(binding) {
                 movieTitle.text = movie.originalTitle
                 movieDescription.text = movie.description
-                movieDuration.text = movie.releaseDate.toString()
+                movieDuration.text = movie.releaseDate
                 movieRating.text = movie.rating.toString()
 
-                //                movieImg.setImageResource(R.drawable.actor_photo_debug)
-                //                "poster_path": "/l8WZDmjJCxOhGToTlhO6l9YAytr.jpg",
-
                 Glide.with(itemView.context)
-                    //                    .load("https://image.tmdb.org/t/p/w500${movie.imagePath}")
                     .load(BuildConfig.POSTER_URL + movie.imagePath)
                     .placeholder(R.drawable.poster_placeholder)
                     .into(movieImg)
@@ -69,6 +65,17 @@ class MoviePagingAdapter(private val clickListener: OnRecyclerViewItemClickListe
     PagingDataAdapter<MoviePreview, MoviePagingAdapter.PagingMovieViewHolder>(
         diffCallback = PagingMoviePreviewDiffUtilCallback()
     ) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagingMovieViewHolder {
+        val binding =
+            ItemMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return PagingMovieViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: PagingMovieViewHolder, position: Int) {
+        holder.bind(getItem(position)!!)
+        loadStateFlow
+    }
 
     inner class PagingMovieViewHolder(private val binding: ItemMovieListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -91,16 +98,6 @@ class MoviePagingAdapter(private val clickListener: OnRecyclerViewItemClickListe
 
             }
         }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagingMovieViewHolder {
-        val binding =
-            ItemMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PagingMovieViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: PagingMovieViewHolder, position: Int) {
-        holder.bind(getItem(position)!!)
     }
 }
 

@@ -39,7 +39,7 @@ class MovieRemoteDataSource @Inject constructor(
                 initialLoadSize = API_PAGE_SIZE * 2
             ),
             pagingSourceFactory = {
-                MoviePreviewsPagingSource(movieService, API_PAGE_SIZE)
+                MoviePreviewsPagingSource(movieService)
             }
         ).flow
     }
