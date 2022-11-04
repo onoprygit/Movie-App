@@ -34,12 +34,12 @@ object DataModule {
     //Moshi
     @Provides
     @Singleton
-    fun provideMoshi() = Moshi.Builder().build()
+    fun provideMoshi(): Moshi = Moshi.Builder().build()
 
     //Retrofit
     @Provides
     @Singleton
-    fun provideRetrofit(moshi: Moshi, client: OkHttpClient) = Retrofit.Builder()
+    fun provideRetrofit(moshi: Moshi, client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl("https://api.themoviedb.org/3/")
         .client(client)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -47,7 +47,7 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideApi(retrofit: Retrofit) = retrofit.create(MovieDbApi::class.java)
+    fun provideApi(retrofit: Retrofit): MovieDbApi = retrofit.create(MovieDbApi::class.java)
 
     /* MovieDataSource */
     @Provides

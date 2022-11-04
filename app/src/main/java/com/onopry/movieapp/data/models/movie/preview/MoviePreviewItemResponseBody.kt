@@ -27,7 +27,7 @@ data class MoviePreviewItemResponseBody(
     @Json(name = "genre_ids")
     val genreIds: List<Int>
 ) {
-    fun mapToMoviePreview() = MoviePreview(
+    fun toDomainModel() = MoviePreview(
         id = id,
         originalTitle = originalTitle,
         description = description,

@@ -15,7 +15,7 @@ class MoviePreviewMapper :
             is Success -> {
                 Success(
                     data.data.movies.map { previewItemResponseBody ->
-                        previewItemResponseBody.mapToMoviePreview()
+                        previewItemResponseBody.toDomainModel()
                     }
                 )
             }

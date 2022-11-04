@@ -4,21 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.paging.map
 import androidx.recyclerview.widget.GridLayoutManager
+import com.onopry.movieapp.common.logError
 import com.onopry.movieapp.databinding.FragmentMovieListBinding
 import com.onopry.movieapp.presentation.lists.moviespreviews.MovieAdapter
+import com.onopry.movieapp.presentation.lists.moviespreviews.MovieLoadStateAdapter
+import com.onopry.movieapp.presentation.lists.moviespreviews.MoviePagingAdapter
 import com.onopry.movieapp.presentation.viewmodels.MovieListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MovieListFragment : Fragment() {
 
+    // TODO: delete lateinit in whole project, change to delegates
     private lateinit var binding: FragmentMovieListBinding
     private lateinit var movieAdapter: MovieAdapter
+    private lateinit var pagingMovieAdapter: MoviePagingAdapter
+    private lateinit var loadStateAdapter: MovieLoadStateAdapter
 
     private val viewModel: MovieListViewModel by viewModels()
 
@@ -28,24 +37,23 @@ class MovieListFragment : Fragment() {
     ): View {
         binding = FragmentMovieListBinding.inflate(inflater, container, false)
 
-        viewModel.moviePreviewStatus.observe(viewLifecycleOwner) { status ->
-            with(status) {
-                hideLoadingProgress()
-                movieAdapter.setData(data)
-
-                if (message.isNotBlank()) onError(message)
-                if (isLoading) showLoadingProgress()
-            }
-        }
-
-        movieAdapter = MovieAdapter { id ->
-            Toast.makeText(context, id.toString(), Toast.LENGTH_SHORT).show()
-            val directions =
-                MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = id)
+        pagingMovieAdapter = MoviePagingAdapter { movieId ->
+            val directions = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId = movieId)
             findNavController().navigate(directions)
         }
 
-        binding.recyclerMovies.adapter = movieAdapter
+//        loadStateAdapter = MovieLoadStateAdapter { pagingMovieAdapter.retry() }
+//
+//        pagingMovieAdapter.withLoadStateFooter(loadStateAdapter)
+
+        lifecycleScope.launch {
+            viewModel.moviePreviewsFlow.collectLatest { pagingData ->
+//                pagingData.map { logError(it.id.toString()) }
+                pagingMovieAdapter.submitData(pagingData)
+            }
+        }
+
+        binding.recyclerMovies.adapter = pagingMovieAdapter
         binding.recyclerMovies.layoutManager = GridLayoutManager(context, 2)
 
         return binding.root
