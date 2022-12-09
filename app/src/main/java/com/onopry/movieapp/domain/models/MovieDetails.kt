@@ -1,7 +1,7 @@
 package com.onopry.movieapp.domain.models
 
-import com.onopry.movieapp.data.models.actors.ActorDto
-import com.onopry.movieapp.data.models.genre.GenreDto
+import com.onopry.movieapp.data.models.remote.details.ActorDto
+import com.onopry.movieapp.data.models.remote.GenreDto
 import java.time.LocalDate
 
 //todo override and equals/hashcode funcs

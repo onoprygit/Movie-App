@@ -4,7 +4,7 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.onopry.movieapp.common.logDebug
 import com.onopry.movieapp.data.datasources.remote.network.MovieDbApi
-import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
+import com.onopry.movieapp.data.models.remote.preview.MoviePreviewItemResponseBody
 import retrofit2.HttpException
 import java.io.IOException
 

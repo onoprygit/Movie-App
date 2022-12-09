@@ -1,4 +1,4 @@
-package com.onopry.movieapp.data.models.movie.preview
+package com.onopry.movieapp.data.models.remote.preview
 
 import com.onopry.movieapp.domain.models.MoviePreview
 import com.squareup.moshi.Json

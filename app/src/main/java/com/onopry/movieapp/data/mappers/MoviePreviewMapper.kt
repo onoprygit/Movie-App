@@ -4,7 +4,7 @@ import com.onopry.movieapp.data.datasources.remote.network.Error
 import com.onopry.movieapp.data.datasources.remote.network.Exception
 import com.onopry.movieapp.data.datasources.remote.network.NetworkResult
 import com.onopry.movieapp.data.datasources.remote.network.Success
-import com.onopry.movieapp.data.models.movie.preview.MovieListResponseBody
+import com.onopry.movieapp.data.models.remote.preview.MovieListResponseBody
 import com.onopry.movieapp.domain.models.MoviePreview
 
 class MoviePreviewMapper :

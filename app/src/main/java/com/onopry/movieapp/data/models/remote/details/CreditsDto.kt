@@ -1,6 +1,5 @@
-package com.onopry.movieapp.data.models.movie.details
+package com.onopry.movieapp.data.models.remote.details
 
-import com.onopry.movieapp.data.models.actors.ActorDto
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

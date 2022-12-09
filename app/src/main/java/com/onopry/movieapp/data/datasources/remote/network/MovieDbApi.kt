@@ -1,7 +1,7 @@
 package com.onopry.movieapp.data.datasources.remote.network
 
-import com.onopry.movieapp.data.models.movie.details.MovieDetailsResponseBody
-import com.onopry.movieapp.data.models.movie.preview.MovieListResponseBody
+import com.onopry.movieapp.data.models.remote.details.MovieDetailsResponseBody
+import com.onopry.movieapp.data.models.remote.preview.MovieListResponseBody
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -3,7 +3,7 @@ package com.onopry.movieapp.presentation.lists.genres
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.onopry.movieapp.data.models.genre.GenreDto
+import com.onopry.movieapp.data.models.remote.GenreDto
 import com.onopry.movieapp.databinding.ItemGenreBinding
 
 class GenresAdapter : RecyclerView.Adapter<GenresAdapter.GenreViewHolder>() {

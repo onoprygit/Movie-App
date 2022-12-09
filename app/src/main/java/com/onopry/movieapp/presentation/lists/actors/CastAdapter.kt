@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.onopry.movieapp.R
-import com.onopry.movieapp.data.models.actors.ActorDto
+import com.onopry.movieapp.data.models.remote.details.ActorDto
 import com.onopry.movieapp.databinding.ItemActorBinding
 
 /*

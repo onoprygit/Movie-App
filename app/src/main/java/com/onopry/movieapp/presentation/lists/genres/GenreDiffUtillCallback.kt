@@ -1,6 +1,6 @@
 package com.onopry.movieapp.presentation.lists.genres
 
-import com.onopry.movieapp.data.models.genre.GenreDto
+import com.onopry.movieapp.data.models.remote.GenreDto
 import com.onopry.movieapp.presentation.lists.BaseDiffUtillCallback
 
 class GenreDiffUtillCallback(

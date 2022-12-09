@@ -1,6 +1,6 @@
 package com.onopry.movieapp.presentation.lists.actors
 
-import com.onopry.movieapp.data.models.actors.ActorDto
+import com.onopry.movieapp.data.models.remote.details.ActorDto
 import com.onopry.movieapp.presentation.lists.BaseDiffUtillCallback
 
 class ActorDiffUtillCallback(

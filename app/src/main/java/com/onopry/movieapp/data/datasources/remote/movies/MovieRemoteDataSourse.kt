@@ -5,11 +5,9 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.onopry.movieapp.data.datasources.remote.network.MovieDbApi
 import com.onopry.movieapp.data.datasources.remote.network.safeApiCall
-import com.onopry.movieapp.data.models.actors.ActorDto
-import com.onopry.movieapp.data.models.genre.GenreDto
-import com.onopry.movieapp.data.models.movie.preview.MoviePreviewItemResponseBody
-import com.onopry.movieapp.data.repositories.MoviesRepositoryImpl
-import com.onopry.movieapp.domain.models.MoviePreview
+import com.onopry.movieapp.data.models.remote.details.ActorDto
+import com.onopry.movieapp.data.models.remote.GenreDto
+import com.onopry.movieapp.data.models.remote.preview.MoviePreviewItemResponseBody
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
